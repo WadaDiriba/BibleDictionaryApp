@@ -1,0 +1,142 @@
+{
+  "salvation": {
+    "word": "Salvation",
+    "definition": "Deliverance from sin and evil through Jesus Christ",
+    "hebrew": "יְשׁוּעָה (Yeshuah) – deliverance, rescue",
+    "greek": "σωτηρία (Soteria) – rescue, safety",
+    "description": "Salvation is God’s plan to rescue humanity from sin and eternal death through faith in Christ.",
+    "verses": ["John 3:16", "Ephesians 2:8-9"]
+  },
+
+  "grace": {
+    "word": "Grace",
+    "definition": "Free and unmerited favor of God",
+    "greek": "χάρις (Charis) – kindness, favor",
+    "description": "Grace is God’s kindness given to us even though we do not deserve it.",
+    "verses": ["Romans 6:14", "2 Corinthians 12:9"]
+  },
+
+  "faith": {
+    "word": "Faith",
+    "definition": "Trust and belief in God",
+    "hebrew": "אֱמוּנָה (Emunah) – faithfulness",
+    "greek": "πίστις (Pistis) – belief, trust",
+    "description": "Faith is confidence in what we hope for and assurance about what we do not see.",
+    "verses": ["Hebrews 11:1", "Romans 10:17"]
+  },
+
+  "hope": {
+    "word": "Hope",
+    "definition": "Confident expectation of God’s promises",
+    "hebrew": "תִּקְוָה (Tikvah) – expectation",
+    "greek": "ἐλπίς (Elpis) – hope, trust",
+    "description": "Hope anchors our soul in God’s faithful promises.",
+    "verses": ["Romans 15:13"]
+  },
+
+  "mercy": {
+    "word": "Mercy",
+    "definition": "Compassion shown by God",
+    "hebrew": "רַחֲמִים (Rachamim) – compassion",
+    "greek": "ἔλεος (Eleos) – mercy",
+    "description": "Mercy is God withholding punishment we deserve.",
+    "verses": ["Psalm 103:8"]
+  },
+
+  "forgiveness": {
+    "word": "Forgiveness",
+    "definition": "God pardoning our sins",
+    "hebrew": "סָלַח (Salach) – to pardon",
+    "greek": "ἄφεσις (Aphesis) – release",
+    "description": "Through Christ, God forgives and cleanses us.",
+    "verses": ["1 John 1:9"]
+  },
+
+  "prayer": {
+    "word": "Prayer",
+    "definition": "Communication with God",
+    "hebrew": "תְּפִלָּה (Tefillah) – prayer",
+    "greek": "προσευχή (Proseuche) – prayer",
+    "description": "Prayer is speaking and listening to God.",
+    "verses": ["1 Thessalonians 5:17"]
+  },
+
+  "wisdom": {
+    "word": "Wisdom",
+    "definition": "Ability to make right choices",
+    "hebrew": "חָכְמָה (Chokmah) – wisdom",
+    "greek": "σοφία (Sophia) – wisdom",
+    "description": "True wisdom comes from God.",
+    "verses": ["James 1:5"]
+  },
+
+  "righteousness": {
+    "word": "Righteousness",
+    "definition": "Living according to God’s will",
+    "hebrew": "צְדָקָה (Tzedakah) – justice",
+    "greek": "δικαιοσύνη (Dikaiosune) – righteousness",
+    "description": "Righteousness is right standing with God.",
+    "verses": ["Romans 3:22"]
+  },
+
+  "holiness": {
+    "word": "Holiness",
+    "definition": "Being set apart for God",
+    "hebrew": "קָדוֹשׁ (Kadosh) – holy",
+    "greek": "ἅγιος (Hagios) – holy",
+    "description": "God calls His people to be holy.",
+    "verses": ["1 Peter 1:15-16"]
+  },
+
+  "obedience": {
+    "word": "Obedience",
+    "definition": "Following God’s commands",
+    "hebrew": "שָׁמַע (Shama) – hear, obey",
+    "greek": "ὑπακοή (Hypakoe) – obedience",
+    "description": "Obedience shows our love for God.",
+    "verses": ["John 14:15"]
+  },
+
+  "repentance": {
+    "word": "Repentance",
+    "definition": "Turning away from sin",
+    "hebrew": "תְּשׁוּבָה (Teshuvah) – return",
+    "greek": "μετάνοια (Metanoia) – change of mind",
+    "description": "True repentance brings spiritual change.",
+    "verses": ["Acts 3:19"]
+  },
+
+  "love": {
+    "word": "Love",
+    "definition": "Unselfish care for others",
+    "greek": "ἀγάπη (Agape) – divine love",
+    "description": "God is love.",
+    "verses": ["1 John 4:8"]
+  },
+
+  "peace": {
+    "word": "Peace",
+    "definition": "Inner calm from God",
+    "hebrew": "שָׁלוֹם (Shalom) – wholeness",
+    "greek": "εἰρήνη (Eirene) – peace",
+    "description": "God gives peace beyond understanding.",
+    "verses": ["Philippians 4:7"]
+  },
+
+  "glory": {
+    "word": "Glory",
+    "definition": "Honor and praise given to God",
+    "hebrew": "כָּבוֹד (Kavod) – honor",
+    "greek": "δόξα (Doxa) – glory",
+    "description": "Glory belongs to God alone.",
+    "verses": ["Isaiah 42:8"]
+  },
+
+  "sanctification": {
+    "word": "Sanctification",
+    "definition": "Process of becoming holy",
+    "greek": "ἁγιασμός (Hagiasmos) – holiness",
+    "description": "Sanctification is the ongoing work of the Holy Spirit.",
+    "verses": ["1 Thessalonians 4:3"]
+  }
+}
