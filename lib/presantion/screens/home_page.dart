@@ -1,5 +1,8 @@
 import 'package:bibledictionary/presantion/providers/bible_provider.dart';
 import 'package:bibledictionary/presantion/screens/detail_screen.dart';
+import 'package:bibledictionary/presantion/widgets/appbar.dart';
+import 'package:bibledictionary/presantion/widgets/drawer.dart';
+import 'package:bibledictionary/presantion/widgets/searchbar.dart';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -32,12 +35,13 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      appBar: const CustomAppBar(),
+      drawer: const CustomDrawer(), 
+      backgroundColor: const Color(0xFFF8F5F0), // Light parchment background
       body: SafeArea(
         child: Column(
           children: [
-            _buildAppBar(context),
-            _buildSearchBar(context),
+           const CustomSearchBar(),
             Expanded(
               child: _buildContent(),
             ),
@@ -48,97 +52,14 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _buildAppBar(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Bible Dictionary',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.blue[900],
-                ),
-              ),
-              const SizedBox(height: 4),
-              Consumer<BibleProvider>(
-                builder: (context, provider, child) {
-                  return Text(
-                    '${provider.words.length} ${provider.words.length == 1 ? 'word' : 'words'} available',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.grey[600],
-                    ),
-                  );
-                },
-              ),
-            ],
-          ),
-          IconButton(
-            onPressed: () => _showBookmarks(context),
-            icon: const Icon(Icons.bookmark, size: 28),
-            tooltip: 'Bookmarks',
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildSearchBar(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-      child: Consumer<BibleProvider>(
-        builder: (context, provider, child) {
-          return TextField(
-            controller: _searchController,
-            focusNode: _searchFocusNode,
-            decoration: InputDecoration(
-              hintText: 'Search words, definitions, Hebrew, Greek...',
-              prefixIcon: Icon(Icons.search, color: Colors.blue[700]),
-              suffixIcon: _searchController.text.isNotEmpty
-                  ? IconButton(
-                      icon: Icon(Icons.clear, color: Colors.grey[600]),
-                      onPressed: () {
-                        _searchController.clear();
-                        provider.clearSearch();
-                        _searchFocusNode.unfocus();
-                      },
-                    )
-                  : null,
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(25),
-                borderSide: BorderSide.none,
-              ),
-              filled: true,
-              fillColor: Colors.white,
-              contentPadding: const EdgeInsets.symmetric(
-                horizontal: 20,
-                vertical: 0,
-              ),
-            ),
-            onChanged: provider.search,
-            onTap: () {
-              if (_searchController.text.isNotEmpty) {
-                _searchFocusNode.requestFocus();
-              }
-            },
-          );
-        },
-      ),
-    );
-  }
-
   Widget _buildContent() {
     return Consumer<BibleProvider>(
       builder: (context, provider, child) {
         if (provider.isLoading && !_isRefreshing) {
           return const Center(
-            child: CircularProgressIndicator.adaptive(),
+            child: CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation(Color(0xFFFFD700)), // Gold
+            ),
           );
         }
 
@@ -151,6 +72,8 @@ class _HomePageState extends State<HomePage> {
         }
 
         return RefreshIndicator(
+          color: const Color(0xFFFFD700), // Gold
+          backgroundColor: const Color(0xFF0A1D37), // Royal blue
           onRefresh: () async {
             setState(() {
               _isRefreshing = true;
@@ -181,8 +104,13 @@ class _HomePageState extends State<HomePage> {
     return Card(
       margin: EdgeInsets.zero,
       elevation: 2,
+      color: Colors.white,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
+        side: BorderSide(
+          color: const Color(0xFFFFD700).withOpacity(0.2), // Gold border
+          width: 1,
+        ),
       ),
       child: ListTile(
         contentPadding: const EdgeInsets.symmetric(
@@ -193,11 +121,18 @@ class _HomePageState extends State<HomePage> {
           width: 44,
           height: 44,
           decoration: BoxDecoration(
-            color: _getWordColor(word.word),
+            gradient: LinearGradient(
+              colors: [
+                const Color(0xFF0A1D37), // Royal blue
+                const Color(0xFF102B4E), // Lighter royal blue
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
             borderRadius: BorderRadius.circular(22),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.1),
+                color: const Color(0xFF0A1D37).withOpacity(0.3),
                 blurRadius: 4,
                 offset: const Offset(0, 2),
               ),
@@ -206,15 +141,15 @@ class _HomePageState extends State<HomePage> {
           child: Center(
             child: Text(
               word.word[0].toUpperCase(),
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: Color(0xFFFFD700), // Gold
                 shadows: [
                   Shadow(
-                    color: Colors.black.withOpacity(0.2),
+                    color: Colors.black26,
                     blurRadius: 2,
-                    offset: const Offset(0, 1),
+                    offset: Offset(0, 1),
                   ),
                 ],
               ),
@@ -226,7 +161,7 @@ class _HomePageState extends State<HomePage> {
           style: const TextStyle(
             fontWeight: FontWeight.w600,
             fontSize: 17,
-            color: Colors.black87,
+            color: Color(0xFF0A1D37), // Royal blue text
           ),
         ),
         subtitle: Padding(
@@ -250,7 +185,9 @@ class _HomePageState extends State<HomePage> {
             IconButton(
               icon: Icon(
                 word.isBookmarked ? Icons.bookmark : Icons.bookmark_outline,
-                color: word.isBookmarked ? Colors.amber[700] : Colors.grey[500],
+                color: word.isBookmarked 
+                    ? const Color(0xFFFFD700) // Gold
+                    : Colors.grey[500],
                 size: 22,
               ),
               onPressed: () {
@@ -262,7 +199,7 @@ class _HomePageState extends State<HomePage> {
             const SizedBox(width: 4),
             Icon(
               Icons.chevron_right,
-              color: Colors.grey[400],
+              color: const Color(0xFF0A1D37).withOpacity(0.5), // Royal blue
               size: 20,
             ),
           ],
@@ -279,10 +216,18 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.search_off_rounded,
-              size: 80,
-              color: Colors.grey[400],
+            Container(
+              width: 100,
+              height: 100,
+              decoration: BoxDecoration(
+                color: const Color(0xFF0A1D37).withOpacity(0.1),
+                borderRadius: BorderRadius.circular(50),
+              ),
+              child: Icon(
+                Icons.search_off_rounded,
+                size: 60,
+                color: const Color(0xFF0A1D37).withOpacity(0.5), // Royal blue
+              ),
             ),
             const SizedBox(height: 20),
             Text(
@@ -290,7 +235,7 @@ class _HomePageState extends State<HomePage> {
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w600,
-                color: Colors.grey[700],
+                color: const Color(0xFF0A1D37), // Royal blue
               ),
             ),
             const SizedBox(height: 12),
@@ -301,7 +246,7 @@ class _HomePageState extends State<HomePage> {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 15,
-                  color: Colors.grey[600],
+                  color: const Color(0xFF0A1D37).withOpacity(0.7), // Royal blue
                   height: 1.5,
                 ),
               ),
@@ -313,8 +258,8 @@ class _HomePageState extends State<HomePage> {
                 Provider.of<BibleProvider>(context, listen: false).clearSearch();
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue[600],
-                foregroundColor: Colors.white,
+                backgroundColor: const Color(0xFF0A1D37), // Royal blue
+                foregroundColor: const Color(0xFFFFD700), // Gold
                 padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(25),
@@ -336,10 +281,18 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.book_outlined,
-              size: 80,
-              color: Colors.grey[400],
+            Container(
+              width: 100,
+              height: 100,
+              decoration: BoxDecoration(
+                color: const Color(0xFF0A1D37).withOpacity(0.1),
+                borderRadius: BorderRadius.circular(50),
+              ),
+              child: Icon(
+                Icons.book_outlined,
+                size: 60,
+                color: const Color(0xFF0A1D37).withOpacity(0.5), // Royal blue
+              ),
             ),
             const SizedBox(height: 20),
             Text(
@@ -347,7 +300,7 @@ class _HomePageState extends State<HomePage> {
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w600,
-                color: Colors.grey[700],
+                color: const Color(0xFF0A1D37), // Royal blue
               ),
             ),
             const SizedBox(height: 12),
@@ -358,7 +311,7 @@ class _HomePageState extends State<HomePage> {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 15,
-                  color: Colors.grey[600],
+                  color: const Color(0xFF0A1D37).withOpacity(0.7), // Royal blue
                   height: 1.5,
                 ),
               ),
@@ -371,8 +324,8 @@ class _HomePageState extends State<HomePage> {
               icon: const Icon(Icons.refresh, size: 20),
               label: const Text('Retry'),
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue[600],
-                foregroundColor: Colors.white,
+                backgroundColor: const Color(0xFF0A1D37), // Royal blue
+                foregroundColor: const Color(0xFFFFD700), // Gold
                 padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(25),
@@ -393,8 +346,8 @@ class _HomePageState extends State<HomePage> {
         
         return FloatingActionButton(
           onPressed: () => _showBookmarks(context),
-          backgroundColor: Colors.blue[700],
-          foregroundColor: Colors.white,
+          backgroundColor: const Color(0xFF0A1D37), // Royal blue
+          foregroundColor: const Color(0xFFFFD700), // Gold
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
@@ -409,8 +362,12 @@ class _HomePageState extends State<HomePage> {
                   child: Container(
                     padding: const EdgeInsets.all(2),
                     decoration: BoxDecoration(
-                      color: Colors.red,
+                      color: const Color(0xFFFFD700), // Gold badge
                       borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: Colors.white,
+                        width: 1.5,
+                      ),
                     ),
                     constraints: const BoxConstraints(
                       minWidth: 16,
@@ -421,7 +378,7 @@ class _HomePageState extends State<HomePage> {
                           ? '9+' 
                           : provider.bookmarkedWords.length.toString(),
                       style: const TextStyle(
-                        color: Colors.white,
+                        color: Color(0xFF0A1D37), // Royal blue text
                         fontSize: 10,
                         fontWeight: FontWeight.bold,
                       ),
@@ -451,7 +408,7 @@ class _HomePageState extends State<HomePage> {
             ),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.2),
+                color: const Color(0xFF0A1D37).withOpacity(0.2), // Royal blue shadow
                 blurRadius: 20,
                 spreadRadius: 0,
                 offset: const Offset(0, -2),
@@ -476,7 +433,7 @@ class _HomePageState extends State<HomePage> {
                               style: TextStyle(
                                 fontSize: 22,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.blue[900],
+                                color: const Color(0xFF0A1D37), // Royal blue
                               ),
                             ),
                             const SizedBox(height: 4),
@@ -484,7 +441,7 @@ class _HomePageState extends State<HomePage> {
                               '${provider.bookmarkedWords.length} saved ${provider.bookmarkedWords.length == 1 ? 'word' : 'words'}',
                               style: TextStyle(
                                 fontSize: 14,
-                                color: Colors.grey[600],
+                                color: const Color(0xFF0A1D37).withOpacity(0.7), // Royal blue
                               ),
                             ),
                           ],
@@ -495,10 +452,14 @@ class _HomePageState extends State<HomePage> {
                             width: 40,
                             height: 40,
                             decoration: BoxDecoration(
-                              color: Colors.grey[100],
+                              color: const Color(0xFF0A1D37).withOpacity(0.1),
                               borderRadius: BorderRadius.circular(20),
                             ),
-                            child: const Icon(Icons.close, size: 20),
+                            child: Icon(
+                              Icons.close,
+                              size: 20,
+                              color: const Color(0xFF0A1D37), // Royal blue
+                            ),
                           ),
                         ),
                       ],
@@ -509,17 +470,25 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.symmetric(vertical: 60),
                       child: Column(
                         children: [
-                          Icon(
-                            Icons.bookmark_border_rounded,
-                            size: 70,
-                            color: Colors.grey[300],
+                          Container(
+                            width: 80,
+                            height: 80,
+                            decoration: BoxDecoration(
+                              color: const Color(0xFF0A1D37).withOpacity(0.1),
+                              borderRadius: BorderRadius.circular(40),
+                            ),
+                            child: Icon(
+                              Icons.bookmark_border_rounded,
+                              size: 50,
+                              color: const Color(0xFF0A1D37).withOpacity(0.5), // Royal blue
+                            ),
                           ),
                           const SizedBox(height: 20),
                           Text(
                             'No bookmarks yet',
                             style: TextStyle(
                               fontSize: 18,
-                              color: Colors.grey[600],
+                              color: const Color(0xFF0A1D37), // Royal blue
                             ),
                           ),
                           const SizedBox(height: 12),
@@ -530,7 +499,7 @@ class _HomePageState extends State<HomePage> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 14,
-                                color: Colors.grey[500],
+                                color: const Color(0xFF0A1D37).withOpacity(0.7), // Royal blue
                               ),
                             ),
                           ),
@@ -547,19 +516,37 @@ class _HomePageState extends State<HomePage> {
                           final word = provider.bookmarkedWords[index];
                           return Card(
                             margin: EdgeInsets.zero,
+                            color: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                              side: BorderSide(
+                                color: const Color(0xFFFFD700).withOpacity(0.2), // Gold border
+                                width: 1,
+                              ),
+                            ),
                             child: ListTile(
                               contentPadding: const EdgeInsets.symmetric(
                                 horizontal: 16,
                                 vertical: 12,
                               ),
-                              leading: Icon(
-                                Icons.bookmark,
-                                color: Colors.amber[700],
+                              leading: Container(
+                                width: 40,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  color: const Color(0xFFFFD700), // Gold
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: const Icon(
+                                  Icons.bookmark,
+                                  color: Color(0xFF0A1D37), // Royal blue
+                                  size: 20,
+                                ),
                               ),
                               title: Text(
                                 word.word,
                                 style: const TextStyle(
                                   fontWeight: FontWeight.w600,
+                                  color: Color(0xFF0A1D37), // Royal blue
                                 ),
                               ),
                               subtitle: Text(
@@ -568,14 +555,14 @@ class _HomePageState extends State<HomePage> {
                                     : word.definition,
                                 style: TextStyle(
                                   fontSize: 14,
-                                  color: Colors.grey[600],
+                                  color: const Color(0xFF0A1D37).withOpacity(0.7), // Royal blue
                                 ),
                                 maxLines: 2,
                                 overflow: TextOverflow.ellipsis,
                               ),
                               trailing: Icon(
                                 Icons.chevron_right,
-                                color: Colors.grey[400],
+                                color: const Color(0xFF0A1D37).withOpacity(0.5), // Royal blue
                               ),
                               onTap: () {
                                 Navigator.pop(context);
@@ -621,16 +608,14 @@ class _HomePageState extends State<HomePage> {
   Color _getWordColor(String word) {
     // Generate a consistent color based on the first letter
     final colors = [
-      Colors.blue[700]!,
-      Colors.green[700]!,
-      Colors.purple[700]!,
-      Colors.orange[700]!,
-      Colors.red[700]!,
-      Colors.teal[700]!,
-      Colors.indigo[700]!,
-      Colors.pink[700]!,
-      Colors.deepOrange[700]!,
-      Colors.cyan[700]!,
+      const Color(0xFF0A1D37), // Royal blue
+      const Color(0xFF102B4E), // Darker royal blue
+      const Color(0xFF1A3B64), // Even darker royal blue
+      const Color(0xFF2A4B7A), // Lighter royal blue
+      const Color(0xFF3A5B90), // Even lighter royal blue
+      const Color(0xFF4A6BA6), // Light royal blue
+      const Color(0xFF5A7BBC), // Very light royal blue
+      const Color(0xFF6A8BD2), // Lightest royal blue
     ];
     
     final charCode = word.toLowerCase().codeUnitAt(0);
