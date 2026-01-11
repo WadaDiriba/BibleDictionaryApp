@@ -121,27 +121,27 @@ class _CustomDrawerState extends State<CustomDrawer> {
               children: [
                 _buildDrawerSection("EXPLORE", [
                   _buildDrawerTile(Icons.home_filled, "Home", 0),
-                  _buildDrawerTile(Icons.search_rounded, "Search Dictionary", 1),
-                  _buildDrawerTile(Icons.auto_stories, "Browse by Book", 2),
-                  _buildDrawerTile(Icons.history, "Recent Words", 3),
+               
+                 
+             
                 ]),
                 
                 const SizedBox(height: 8),
                 
                 _buildDrawerSection("STUDY", [
                   _buildDrawerTile(Icons.bookmark, "Saved Words", 4),
-                  _buildDrawerTile(Icons.favorite, "Favorites", 5),
-                  _buildDrawerTile(Icons.note, "Study Notes", 6),
-                  _buildDrawerTile(Icons.lightbulb, "Word of the Day", 7),
+                  
+                
+                
                 ]),
                 
                 const SizedBox(height: 8),
                 
                 _buildDrawerSection("SETTINGS", [
-                  _buildDrawerTile(Icons.translate, "Languages", 8),
+                 
                   _buildDrawerTile(Icons.text_fields, "Font Settings", 9),
                   _buildDrawerTile(Icons.nightlight, "Theme", 10),
-                  _buildDrawerTile(Icons.volume_up, "Pronunciation", 11),
+
                 ]),
                 
                 const SizedBox(height: 20),
@@ -157,8 +157,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 
                 _buildDrawerTile(Icons.info, "About Lexicon", 12),
                 _buildDrawerTile(Icons.share, "Share App", 13),
-                _buildDrawerTile(Icons.star, "Rate App", 14),
-                _buildDrawerTile(Icons.help, "Help & Support", 15),
+               
+            
               ],
             ),
           ),

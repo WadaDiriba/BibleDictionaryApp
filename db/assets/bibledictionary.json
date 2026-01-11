@@ -4,8 +4,17 @@
     "definition": "Deliverance from sin and evil through Jesus Christ",
     "hebrew": "יְשׁוּעָה (Yeshuah) – deliverance, rescue",
     "greek": "σωτηρία (Soteria) – rescue, safety",
-    "description": "Salvation is God’s plan to rescue humanity from sin and eternal death through faith in Christ.",
-    "verses": ["John 3:16", "Ephesians 2:8-9"]
+    "description": [
+  "Salvation is God’s plan to rescue humanity from sin and eternal death through faith in Christ.",
+  "It shows God’s love for the world.",
+  "Everyone who believes receives eternal life."
+],
+
+    "verses":[ "John 3:16 => For God so loved the world that he gave his one and only Son...",
+      
+      "Ephesians 2:8-9"
+
+  ]
   },
 
   "grace": {
@@ -13,7 +22,11 @@
     "definition": "Free and unmerited favor of God",
     "greek": "χάρις (Charis) – kindness, favor",
     "description": "Grace is God’s kindness given to us even though we do not deserve it.",
-    "verses": ["Romans 6:14", "2 Corinthians 12:9"]
+    "verses": [
+      "Romans 6:14", 
+      
+      
+      "2 Corinthians 12:9"]
   },
 
   "faith": {

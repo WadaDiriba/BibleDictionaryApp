@@ -58,7 +58,7 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
                 fontWeight: FontWeight.w500,
               ),
               decoration: InputDecoration(
-                hintText: "Search Hebrew, Greek, or English words...",
+                hintText: "Search  English words...",
                 hintStyle: TextStyle(
                   color: ThemeColors.slateGray.withOpacity(0.7),
                   fontStyle: FontStyle.italic,

@@ -1,5 +1,5 @@
 import 'package:bibledictionary/presantion/providers/bible_provider.dart';
-
+import 'package:bibledictionary/presantion/theme/theme_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -11,66 +11,120 @@ class DetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-
-      
+      backgroundColor: ThemeColors.parchment,
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            expandedHeight: 150,
+            expandedHeight: 180,
             floating: false,
             pinned: true,
-            backgroundColor: Colors.white,
-            foregroundColor: Colors.black,
-            elevation: 0,
-            leading: IconButton(
-              icon: const Icon(Icons.arrow_back),
-              onPressed: () => Navigator.pop(context),
+            backgroundColor: ThemeColors.royalBlueDark,
+            foregroundColor: ThemeColors.goldPrimary,
+            elevation: 4,
+            leading: Container(
+              margin: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: ThemeColors.royalBlueMedium,
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(
+                  color: ThemeColors.goldPrimary,
+                  width: 1.5,
+                ),
+              ),
+              child: IconButton(
+                icon: const Icon(
+                  Icons.arrow_back_rounded,
+                  color: ThemeColors.goldPrimary,
+                ),
+                onPressed: () => Navigator.pop(context),
+              ),
             ),
             actions: [
-              Consumer<BibleProvider>(
-                builder: (context, provider, child) {
-                  return IconButton(
-                    icon: Icon(
-                      word.isBookmarked ? Icons.bookmark : Icons.bookmark_border,
-                      color: word.isBookmarked ? Colors.amber : Colors.grey,
-                    ),
-                    onPressed: () {
-                      provider.toggleBookmark(word);
-                    },
-                  );
-                },
+              Container(
+                margin: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: ThemeColors.royalBlueMedium,
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(
+                    color: ThemeColors.goldPrimary,
+                    width: 1.5,
+                  ),
+                ),
+                child: Consumer<BibleProvider>(
+                  builder: (context, provider, child) {
+                    return IconButton(
+                      icon: Icon(
+                        word.isBookmarked 
+                            ? Icons.bookmark_rounded 
+                            : Icons.bookmark_outline_rounded,
+                        color: ThemeColors.goldPrimary,
+                      ),
+                      onPressed: () {
+                        provider.toggleBookmark(word);
+                      },
+                    );
+                  },
+                ),
               ),
             ],
             flexibleSpace: FlexibleSpaceBar(
               background: Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
                     colors: [
-                      Colors.blue[50]!,
-                      Colors.white,
+                      ThemeColors.royalBlueDark,
+                      ThemeColors.royalBlueMedium,
                     ],
                   ),
                 ),
+                child: Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.center,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Colors.transparent,
+                        ThemeColors.royalBlueDark.withOpacity(0.8),
+                      ],
+                    ),
+                  ),
+                ),
               ),
-              title: Text(
-                word.word,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black87,
+              title: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                decoration: BoxDecoration(
+                  color: ThemeColors.royalBlueMedium.withOpacity(0.8),
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(
+                    color: ThemeColors.goldPrimary,
+                    width: 1,
+                  ),
+                ),
+                child: Text(
+                  word.word,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: ThemeColors.goldPrimary,
+                    fontSize: 18,
+                    fontFamily: 'Times New Roman',
+                    letterSpacing: 1,
+                  ),
                 ),
               ),
               centerTitle: true,
+              titlePadding: const EdgeInsets.only(bottom: 16),
             ),
           ),
           SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.all(24),
+              padding: const EdgeInsets.all(20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  _buildWordHeader(),
+                  const SizedBox(height: 24),
                   _buildDefinitionSection(),
                   const SizedBox(height: 24),
                   if (word.description != null && word.description!.isNotEmpty)
@@ -81,6 +135,7 @@ class DetailScreen extends StatelessWidget {
                   const SizedBox(height: 24),
                   if (word.verses != null && word.verses!.isNotEmpty)
                     _buildVersesSection(),
+                  const SizedBox(height: 40),
                 ],
               ),
             ),
@@ -90,10 +145,94 @@ class DetailScreen extends StatelessWidget {
     );
   }
 
+  Widget _buildWordHeader() {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: ThemeColors.royalBlueDark.withOpacity(0.1),
+            blurRadius: 8,
+            offset: const Offset(0, 2),
+          ),
+        ],
+        border: Border.all(
+          color: ThemeColors.goldPrimary.withOpacity(0.2),
+          width: 1,
+        ),
+      ),
+      child: Row(
+        children: [
+          Container(
+            width: 60,
+            height: 60,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  ThemeColors.royalBlueDark,
+                  ThemeColors.royalBlueMedium,
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+              borderRadius: BorderRadius.circular(30),
+              boxShadow: [
+                BoxShadow(
+                  color: ThemeColors.royalBlueDark.withOpacity(0.3),
+                  blurRadius: 6,
+                  offset: const Offset(0, 3),
+                ),
+              ],
+            ),
+            child: Center(
+              child: Text(
+                word.word[0].toUpperCase(),
+                style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                  color: ThemeColors.goldPrimary,
+                  fontFamily: 'Times New Roman',
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(width: 16),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  word.word,
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: ThemeColors.royalBlueDark,
+                    fontFamily: 'Times New Roman',
+                    letterSpacing: 0.5,
+                  ),
+                ),
+                // Removed the language property since it doesn't exist in BibleWord
+                // You can add this back if you add a language property to your model
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget _buildDefinitionSection() {
     return Card(
-      elevation: 0,
-      color: Colors.blue[50],
+      elevation: 2,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(
+          color: ThemeColors.goldPrimary.withOpacity(0.2),
+          width: 1,
+        ),
+      ),
       child: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -101,29 +240,48 @@ class DetailScreen extends StatelessWidget {
           children: [
             Row(
               children: [
-                Icon(
-                  Icons.info_outline,
-                  color: Colors.blue[800],
-                  size: 20,
+                Container(
+                  padding: const EdgeInsets.all(6),
+                  decoration: BoxDecoration(
+                    color: ThemeColors.royalBlueDark,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Icon(
+                    Icons.info_outline_rounded,
+                    color: ThemeColors.goldPrimary,
+                    size: 20,
+                  ),
                 ),
-                const SizedBox(width: 8),
+                const SizedBox(width: 12),
                 Text(
-                  'Definition',
+                  'DEFINITION',
                   style: TextStyle(
                     fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.blue[800],
+                    fontWeight: FontWeight.w700,
+                    color: ThemeColors.royalBlueDark,
+                    letterSpacing: 1,
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 12),
-            Text(
-              word.definition,
-              style: const TextStyle(
-                fontSize: 16,
-                height: 1.6,
-                color: Colors.black87,
+            const SizedBox(height: 16),
+            Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: ThemeColors.ivoryWhite,
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(
+                  color: ThemeColors.royalBlueDark.withOpacity(0.1),
+                ),
+              ),
+              child: Text(
+                word.definition,
+                style: TextStyle(
+                  fontSize: 16,
+                  height: 1.6,
+                  color: ThemeColors.charcoal,
+                  fontStyle: FontStyle.normal,
+                ),
               ),
             ),
           ],
@@ -134,8 +292,14 @@ class DetailScreen extends StatelessWidget {
 
   Widget _buildDescriptionSection() {
     return Card(
-      elevation: 0,
-      color: Colors.purple[50],
+      elevation: 2,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(
+          color: ThemeColors.goldPrimary.withOpacity(0.2),
+          width: 1,
+        ),
+      ),
       child: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -143,29 +307,47 @@ class DetailScreen extends StatelessWidget {
           children: [
             Row(
               children: [
-                Icon(
-                  Icons.description,
-                  color: Colors.purple[800],
-                  size: 20,
+                Container(
+                  padding: const EdgeInsets.all(6),
+                  decoration: BoxDecoration(
+                    color: ThemeColors.royalBlueDark,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Icon(
+                    Icons.description_rounded,
+                    color: ThemeColors.goldPrimary,
+                    size: 20,
+                  ),
                 ),
-                const SizedBox(width: 8),
+                const SizedBox(width: 12),
                 Text(
-                  'Description',
+                  'DETAILED EXPLANATION',
                   style: TextStyle(
                     fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.purple[800],
+                    fontWeight: FontWeight.w700,
+                    color: ThemeColors.royalBlueDark,
+                    letterSpacing: 1,
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 12),
-            Text(
-              word.description!,
-              style: const TextStyle(
-                fontSize: 15,
-                height: 1.6,
-                color: Colors.black87,
+            const SizedBox(height: 16),
+            Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: ThemeColors.ivoryWhite,
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(
+                  color: ThemeColors.royalBlueDark.withOpacity(0.1),
+                ),
+              ),
+              child: Text(
+                word.description!,
+                style: TextStyle(
+                  fontSize: 15,
+                  height: 1.6,
+                  color: ThemeColors.charcoal,
+                ),
               ),
             ),
           ],
@@ -176,8 +358,14 @@ class DetailScreen extends StatelessWidget {
 
   Widget _buildOriginalLanguagesSection() {
     return Card(
-      elevation: 0,
-      color: Colors.grey[50],
+      elevation: 2,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(
+          color: ThemeColors.goldPrimary.withOpacity(0.2),
+          width: 1,
+        ),
+      ),
       child: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -185,27 +373,35 @@ class DetailScreen extends StatelessWidget {
           children: [
             Row(
               children: [
-                Icon(
-                  Icons.language,
-                  color: Colors.blue[800],
-                  size: 20,
+                Container(
+                  padding: const EdgeInsets.all(6),
+                  decoration: BoxDecoration(
+                    color: ThemeColors.royalBlueDark,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Icon(
+                    Icons.language_rounded,
+                    color: ThemeColors.goldPrimary,
+                    size: 20,
+                  ),
                 ),
-                const SizedBox(width: 8),
+                const SizedBox(width: 12),
                 Text(
-                  'Original Languages',
+                  'ORIGINAL LANGUAGES',
                   style: TextStyle(
                     fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.blue[800],
+                    fontWeight: FontWeight.w700,
+                    color: ThemeColors.royalBlueDark,
+                    letterSpacing: 1,
                   ),
                 ),
               ],
             ),
             const SizedBox(height: 16),
             if (word.hebrew != null) 
-              _buildLanguageItem('Hebrew', word.hebrew!),
+              _buildLanguageItem('HEBREW ORIGIN', word.hebrew!),
             if (word.greek != null) 
-              _buildLanguageItem('Greek', word.greek!),
+              _buildLanguageItem('GREEK ORIGIN', word.greek!),
           ],
         ),
       ),
@@ -214,31 +410,46 @@ class DetailScreen extends StatelessWidget {
 
   Widget _buildLanguageItem(String language, String text) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 12),
+      padding: const EdgeInsets.only(bottom: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             language,
             style: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-              color: Colors.grey[700],
+              fontSize: 13,
+              fontWeight: FontWeight.w600,
+              color: ThemeColors.royalBlueDark.withOpacity(0.7),
+              letterSpacing: 0.5,
             ),
           ),
-          const SizedBox(height: 4),
+          const SizedBox(height: 8),
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+            padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: Colors.white,
-              borderRadius: BorderRadius.circular(8),
-              border: Border.all(color: Colors.grey[200]!),
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(
+                color: ThemeColors.goldPrimary.withOpacity(0.3),
+                width: 1,
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: ThemeColors.royalBlueDark.withOpacity(0.05),
+                  blurRadius: 4,
+                  offset: const Offset(0, 2),
+                ),
+              ],
             ),
-            child: Text(
-              text,
-              style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
+            child: Center(
+              child: Text(
+                text,
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: 'Times New Roman',
+                ),
+                textAlign: TextAlign.center,
               ),
             ),
           ),
@@ -249,8 +460,14 @@ class DetailScreen extends StatelessWidget {
 
   Widget _buildVersesSection() {
     return Card(
-      elevation: 0,
-      color: Colors.green[50],
+      elevation: 2,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(
+          color: ThemeColors.goldPrimary.withOpacity(0.2),
+          width: 1,
+        ),
+      ),
       child: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -258,63 +475,106 @@ class DetailScreen extends StatelessWidget {
           children: [
             Row(
               children: [
-                Icon(
-                  Icons.book,
-                  color: Colors.green[800],
-                  size: 20,
+                Container(
+                  padding: const EdgeInsets.all(6),
+                  decoration: BoxDecoration(
+                    color: ThemeColors.royalBlueDark,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Icon(
+                    Icons.book_rounded,
+                    color: ThemeColors.goldPrimary,
+                    size: 20,
+                  ),
                 ),
-                const SizedBox(width: 8),
+                const SizedBox(width: 12),
                 Text(
-                  'Related Bible Verses',
+                  'RELATED BIBLE VERSES',
                   style: TextStyle(
                     fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.green[800],
+                    fontWeight: FontWeight.w700,
+                    color: ThemeColors.royalBlueDark,
+                    letterSpacing: 1,
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 16),
             Column(
               children: word.verses!.map((verse) => Padding(
-                padding: const EdgeInsets.only(bottom: 12),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      width: 6,
-                      height: 6,
-                      margin: const EdgeInsets.only(top: 8, right: 12),
-                      decoration: BoxDecoration(
-                        color: Colors.green,
-                        borderRadius: BorderRadius.circular(3),
+                padding: const EdgeInsets.only(bottom: 16),
+                child: InkWell(
+                  onTap: () {
+                    // Handle verse tap
+                  },
+                  borderRadius: BorderRadius.circular(12),
+                  child: Container(
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(
+                        color: ThemeColors.royalBlueDark.withOpacity(0.1),
+                        width: 1,
                       ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: ThemeColors.royalBlueDark.withOpacity(0.05),
+                          blurRadius: 4,
+                          offset: const Offset(0, 2),
+                        ),
+                      ],
                     ),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            verse,
-                            style: const TextStyle(
-                              fontSize: 15,
-                              height: 1.5,
-                              color: Colors.black87,
-                            ),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: 8,
+                          height: 8,
+                          margin: const EdgeInsets.only(top: 8),
+                          decoration: BoxDecoration(
+                            color: ThemeColors.goldPrimary,
+                            borderRadius: BorderRadius.circular(4),
                           ),
-                          const SizedBox(height: 4),
-                          Text(
-                            'Tap to view in Bible app',
-                            style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.green[700],
-                              fontStyle: FontStyle.italic,
-                            ),
+                        ),
+                        const SizedBox(width: 16),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                verse,
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  height: 1.5,
+                                  color: ThemeColors.charcoal,
+                                ),
+                              ),
+                              // const SizedBox(height: 8),
+                              // Row(
+                              //   children: [
+                              //     Icon(
+                              //       Icons.open_in_new_rounded,
+                              //       size: 14,
+                              //       color: ThemeColors.royalBlueDark,
+                              //     ),
+                              //     const SizedBox(width: 4),
+                              //     Text(
+                              //       'Tap to view full context',
+                              //       style: TextStyle(
+                              //         fontSize: 12,
+                              //         color: ThemeColors.royalBlueDark,
+                              //         fontStyle: FontStyle.italic,
+                              //       ),
+                              //     ),
+                              //   ],
+                              // ),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
               )).toList(),
             ),

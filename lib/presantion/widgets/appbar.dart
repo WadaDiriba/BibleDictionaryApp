@@ -1,5 +1,4 @@
 import 'package:bibledictionary/presantion/theme/theme_colors.dart';
-
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -18,67 +17,83 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       
       // Golden title with scripture-inspired styling
-      title: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const Icon(
-            Icons.menu_book_rounded,
-            color: ThemeColors.goldPrimary,
-            size: 28,
-          ),
-          const SizedBox(width: 12),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "ELROI LEXICON",
-                style: TextStyle(
-                  color: ThemeColors.goldPrimary,
-                  fontSize: 18,
-                  fontWeight: FontWeight.w900,
-                  letterSpacing: 1.5,
-                  fontFamily: 'Times New Roman',
-                ),
+      title: ConstrainedBox(
+        constraints: const BoxConstraints(maxWidth: 200),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Icon(
+              Icons.menu_book_rounded,
+              color: ThemeColors.goldPrimary,
+              size: 24,
+            ),
+            const SizedBox(width: 8),
+            Flexible(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      "ELROI LEXICON",
+                      style: TextStyle(
+                        color: ThemeColors.goldPrimary,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w900,
+                        letterSpacing: 1.0,
+                        fontFamily: 'Times New Roman',
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(
+                      "Bible Dictionary",
+                      style: TextStyle(
+                        color: ThemeColors.goldLight,
+                        fontSize: 9,
+                        fontWeight: FontWeight.w300,
+                        letterSpacing: 0.8,
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ],
               ),
-              Text(
-                "Biblical Dictionary & Concordance",
-                style: TextStyle(
-                  color: ThemeColors.goldLight,
-                  fontSize: 10,
-                  fontWeight: FontWeight.w300,
-                  letterSpacing: 1.2,
-                ),
-              ),
-            ],
-          ),
-        ],
+            ),
+          ],
+        ),
       ),
 
-      // Royal insignia icon
-      leading: Container(
-        margin: const EdgeInsets.all(8),
-        decoration: BoxDecoration(
-          color: ThemeColors.royalBlueMedium,
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(
+      // ✅ FIXED: Make sure leading icon opens the drawer
+      leading: IconButton(
+        icon: Container(
+          padding: const EdgeInsets.all(6),
+          decoration: BoxDecoration(
+            color: ThemeColors.royalBlueMedium,
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(
+              color: ThemeColors.goldPrimary,
+              width: 1.5,
+            ),
+          ),
+          child: const Icon(
+            Icons.menu, // Use menu icon for drawer
             color: ThemeColors.goldPrimary,
-            width: 1.5,
+            size: 20,
           ),
         ),
-        child: IconButton(
-          icon: const Icon(
-            Icons.library_books_rounded,
-            color: ThemeColors.goldPrimary,
-            size: 22,
-          ),
-          onPressed: () {},
-        ),
+        onPressed: () {
+          Scaffold.of(context).openDrawer(); // This opens the drawer
+        },
       ),
 
       // Action icons
       actions: [
-        _buildAppBarIcon(Icons.search, "Search"),
-        _buildAppBarIcon(Icons.translate, "Languages"),
         _buildAppBarIcon(Icons.bookmark_outline, "Bookmarks"),
       ],
     );
@@ -92,7 +107,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         child: IconButton(
           icon: Icon(icon),
           color: ThemeColors.goldPrimary,
-          iconSize: 22,
+          iconSize: 20,
           onPressed: () {},
           style: IconButton.styleFrom(
             backgroundColor: ThemeColors.royalBlueMedium.withOpacity(0.5),
