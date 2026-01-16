@@ -1,7 +1,5 @@
 import 'package:bibledictionary/presantion/providers/bible_provider.dart';
 import 'package:bibledictionary/presantion/screens/home_page.dart';
-
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -33,6 +31,7 @@ class MyApp extends StatelessWidget {
               color: Colors.black87,
             ),
           ),
+          
          
           inputDecorationTheme: InputDecorationTheme(
             filled: true,
@@ -44,6 +43,7 @@ class MyApp extends StatelessWidget {
             contentPadding: const EdgeInsets.symmetric(
               horizontal: 20,
               vertical: 16,
+              
             ),
           ),
         ),

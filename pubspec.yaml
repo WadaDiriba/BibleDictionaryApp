@@ -26,18 +26,12 @@ flutter:
 
   assets:
     - db/assets/bibledictionary.json
-    - db/assets/images/logo (4).png  # Make sure to rename logo (4).png to logo4.png
+    - db/assets/images/logo.png  # Make sure to rename logo (4).png to logo4.png
 
   # Optional: Add custom fonts if needed
-  fonts:
-    - family: Normal
-      fonts:
-        - asset: db/assets/fonts/Normal-Regular.ttf
-        - asset: db/assets/fonts/Normal-Bold.ttf
-          weight: 700
-
+  
 # Launcher icon configuration
 flutter_icons:
   android: true
   ios: true
-  image_path: "db/assets/images/logo4.png"
+  image_path: "db/assets/images/logo.png"

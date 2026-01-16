@@ -605,20 +605,4 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Color _getWordColor(String word) {
-    // Generate a consistent color based on the first letter
-    final colors = [
-      const Color(0xFF0A1D37), // Royal blue
-      const Color(0xFF102B4E), // Darker royal blue
-      const Color(0xFF1A3B64), // Even darker royal blue
-      const Color(0xFF2A4B7A), // Lighter royal blue
-      const Color(0xFF3A5B90), // Even lighter royal blue
-      const Color(0xFF4A6BA6), // Light royal blue
-      const Color(0xFF5A7BBC), // Very light royal blue
-      const Color(0xFF6A8BD2), // Lightest royal blue
-    ];
-    
-    final charCode = word.toLowerCase().codeUnitAt(0);
-    return colors[charCode % colors.length];
-  }
 }

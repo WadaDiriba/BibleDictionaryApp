@@ -107,12 +107,7 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
                           ),
                         ],
                       )
-                    : IconButton(
-                        icon: const Icon(Icons.mic_none_rounded),
-                        color: ThemeColors.royalBlueMedium.withOpacity(0.6),
-                        onPressed: () {},
-                        tooltip: "Voice Search",
-                      ),
+                    : null,
                 
                 // Border Styling
                 border: OutlineInputBorder(

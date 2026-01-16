@@ -1,3 +1,5 @@
+import 'package:bibledictionary/presantion/screens/about_page.dart';
+import 'package:bibledictionary/presantion/screens/setting_page.dart';
 import 'package:bibledictionary/presantion/theme/theme_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -92,37 +94,102 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         },
       ),
 
-      // Action icons
-      actions: [
-        _buildAppBarIcon(Icons.bookmark_outline, "Bookmarks"),
-      ],
+     actions: [
+
+PopupMenuButton<String>(
+
+  itemBuilder: (context) => [
+
+    PopupMenuItem(
+      value: 'settings',
+      child: Row(
+        children: const [
+          Icon(Icons.settings),
+          SizedBox(width: 10),
+          Text("Settings"),
+        ],
+      ),
+    ),
+
+    PopupMenuItem(
+      value: 'about',
+      child: Row(
+        children: const [
+          Icon(Icons.info),
+          SizedBox(width: 10),
+          Text("About Us"),
+        ],
+      ),
+    ),
+
+    PopupMenuItem(
+      value: 'clear', 
+      child: Row(
+        children: const [
+          Icon(Icons.delete),
+          SizedBox(width: 10),
+          Text("Clear"),
+        ],
+      ),
+    ),
+
+  ],
+
+  onSelected: (value) {
+
+    if(value == 'settings'){
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context)=> const SettingsPage()),
+      );
+    }
+
+    else if(value == 'about'){
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context)=> const AboutPage()),
+      );
+    }
+
+    else if (value == 'clear') {
+
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: const Text("Confirm"),
+            content: const Text("Are you sure you want to clear data?"),
+
+            actions: [
+
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text("Cancel"),
+              ),
+
+              ElevatedButton(
+                onPressed: () {
+                  // clear logic here
+                  Navigator.pop(context);
+                },
+                child: const Text("Yes"),
+              ),
+            ],
+          );
+        },
+      );
+    }
+
+   
+  },
+),
+],
+
     );
   }
 
-  Widget _buildAppBarIcon(IconData icon, String tooltip) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 4),
-      child: Tooltip(
-        message: tooltip,
-        child: IconButton(
-          icon: Icon(icon),
-          color: ThemeColors.goldPrimary,
-          iconSize: 20,
-          onPressed: () {},
-          style: IconButton.styleFrom(
-            backgroundColor: ThemeColors.royalBlueMedium.withOpacity(0.5),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-              side: BorderSide(
-                color: ThemeColors.goldPrimary.withOpacity(0.3),
-                width: 1,
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight + 8);

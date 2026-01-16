@@ -254,7 +254,7 @@ class DetailScreen extends StatelessWidget {
                 ),
                 const SizedBox(width: 12),
                 Text(
-                  'DEFINITION',
+                  'HIIKAA JECHAA',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w700,
@@ -321,7 +321,7 @@ class DetailScreen extends StatelessWidget {
                 ),
                 const SizedBox(width: 12),
                 Text(
-                  'DETAILED EXPLANATION',
+                  'HIIKAA AFAAN OROMOO',
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w700,
@@ -402,6 +402,9 @@ class DetailScreen extends StatelessWidget {
               _buildLanguageItem('HEBREW ORIGIN', word.hebrew!),
             if (word.greek != null) 
               _buildLanguageItem('GREEK ORIGIN', word.greek!),
+
+
+              
           ],
         ),
       ),
@@ -550,25 +553,7 @@ class DetailScreen extends StatelessWidget {
                                   color: ThemeColors.charcoal,
                                 ),
                               ),
-                              // const SizedBox(height: 8),
-                              // Row(
-                              //   children: [
-                              //     Icon(
-                              //       Icons.open_in_new_rounded,
-                              //       size: 14,
-                              //       color: ThemeColors.royalBlueDark,
-                              //     ),
-                              //     const SizedBox(width: 4),
-                              //     Text(
-                              //       'Tap to view full context',
-                              //       style: TextStyle(
-                              //         fontSize: 12,
-                              //         color: ThemeColors.royalBlueDark,
-                              //         fontStyle: FontStyle.italic,
-                              //       ),
-                              //     ),
-                              //   ],
-                              // ),
+                            
                             ],
                           ),
                         ),

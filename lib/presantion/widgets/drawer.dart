@@ -1,3 +1,5 @@
+import 'package:bibledictionary/presantion/screens/about_page.dart';
+import 'package:bibledictionary/presantion/screens/setting_page.dart';
 import 'package:bibledictionary/presantion/theme/theme_colors.dart';
 
 import 'package:flutter/material.dart';
@@ -24,7 +26,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
       ),
       child: Column(
         children: [
-          // 🔥 Header with Royal Insignia
+
+          // 🔥 Header
           Container(
             decoration: BoxDecoration(
               gradient: ThemeColors.royalGradient,
@@ -42,7 +45,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // App Logo/Icon
+
                 Container(
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
@@ -59,10 +62,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     color: ThemeColors.goldPrimary,
                   ),
                 ),
-                
+
                 const SizedBox(height: 20),
-                
-                // App Title
+
                 Text(
                   "ELROI LEXICON",
                   style: TextStyle(
@@ -73,10 +75,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     fontFamily: 'Times New Roman',
                   ),
                 ),
-                
+
                 const SizedBox(height: 8),
-                
-                // Subtitle
+
                 Text(
                   "A Treasury of Biblical Wisdom",
                   style: TextStyle(
@@ -86,10 +87,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     letterSpacing: 1.5,
                   ),
                 ),
-                
+
                 const SizedBox(height: 16),
-                
-                // User info or verse of the day
+
                 Container(
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
@@ -114,39 +114,18 @@ class _CustomDrawerState extends State<CustomDrawer> {
             ),
           ),
 
-          // 📜 Navigation Items
+          // 📜 Menu
           Expanded(
             child: ListView(
               padding: const EdgeInsets.symmetric(vertical: 20),
               children: [
+
                 _buildDrawerSection("EXPLORE", [
                   _buildDrawerTile(Icons.home_filled, "Home", 0),
-               
-                 
-             
                 ]),
-                
-                const SizedBox(height: 8),
-                
-                _buildDrawerSection("STUDY", [
-                  _buildDrawerTile(Icons.bookmark, "Saved Words", 4),
-                  
-                
-                
-                ]),
-                
-                const SizedBox(height: 8),
-                
-                _buildDrawerSection("SETTINGS", [
-                 
-                  _buildDrawerTile(Icons.text_fields, "Font Settings", 9),
-                  _buildDrawerTile(Icons.nightlight, "Theme", 10),
 
-                ]),
-                
                 const SizedBox(height: 20),
-                
-                // About section
+
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: Divider(
@@ -154,16 +133,16 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     thickness: 0.5,
                   ),
                 ),
-                
+
                 _buildDrawerTile(Icons.info, "About Lexicon", 12),
+                _buildDrawerTile(Icons.settings, "Settings", 5),
+
                 _buildDrawerTile(Icons.share, "Share App", 13),
-               
-            
               ],
             ),
           ),
 
-          // 👤 Footer with version
+          // 👤 Footer
           Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
@@ -176,6 +155,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+
                 Text(
                   "Version 1.0.0",
                   style: TextStyle(
@@ -183,6 +163,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     fontSize: 11,
                   ),
                 ),
+
                 TextButton.icon(
                   onPressed: () {},
                   icon: Icon(
@@ -218,6 +199,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
     );
   }
 
+  // 🔹 Section Title
   Widget _buildDrawerSection(String title, List<Widget> children) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -239,8 +221,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
     );
   }
 
+  // 🔹 Drawer Tile
   Widget _buildDrawerTile(IconData icon, String title, int index) {
     final isSelected = _selectedIndex == index;
+
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 2),
       decoration: BoxDecoration(
@@ -286,7 +270,29 @@ class _CustomDrawerState extends State<CustomDrawer> {
           setState(() {
             _selectedIndex = index;
           });
+
           Navigator.pop(context);
+
+          // 👉 About navigation
+          if (index == 12) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const AboutPage(),
+              ),
+            );
+          }
+
+
+          if (index == 5) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) => const SettingsPage(),
+    ),
+  );
+}
+
         },
       ),
     );

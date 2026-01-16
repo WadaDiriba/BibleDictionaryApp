@@ -1,63 +1,63 @@
 {
   "salvation": {
-    "word": "Salvation",
-    "definition": "Deliverance from sin and evil through Jesus Christ",
+    "word": "Salvation[n]",
+    "definition": "Fayyina,Jalaa bahuu,bilisa bahuu",
     "hebrew": "יְשׁוּעָה (Yeshuah) – deliverance, rescue",
     "greek": "σωτηρία (Soteria) – rescue, safety",
     "description": [
-  "Salvation is God’s plan to rescue humanity from sin and eternal death through faith in Christ.",
-  "It shows God’s love for the world.",
-  "Everyone who believes receives eternal life."
+  " Fayyinni Karoora Waaqayyoo baroota keessatti ture,dhala namaa biyya lafaa fi cubbuu jalaa Karaa ilmaa isaa Yesuus Kiristoosiin Waamicha guddaa dhala namaaf godhee,dhukkuba cubbuutti ilmaan namootaa hiikee,Ayyaanan karaa amantii dhala namaaf kennedha..",
+  " Fayyinni jaalala Waaqayyoo biyya lafaatti mul'atedha.",
+  "Fayyina kana keessatti Warri maqaa Yesuusitti amanan hunduu jireenya barabaraa qabu."
 ],
 
-    "verses":[ "John 3:16 => For God so loved the world that he gave his one and only Son...",
+    "verses":[ "Yoh 3:16:Waaqayyo, akkasitti tokkicha ilma isaa hamma kennuufitti biyya lafaa jaallate; kun immoo isatti kan amanu hundinuu jireenya bara baraa haa qabaatuuf malee, haa baduuf miti!",
       
-      "Ephesians 2:8-9"
+      "Efe 2:8-9"
 
   ]
   },
 
   "grace": {
-    "word": "Grace",
-    "definition": "Free and unmerited favor of God",
+    "word": "Grace[n]",
+    "definition": "Ayyaana,Ho'a,Toltummaa",
     "greek": "χάρις (Charis) – kindness, favor",
-    "description": "Grace is God’s kindness given to us even though we do not deserve it.",
+    "description": "Ayyaanni, wanta dhala namaaf hin mallee,Waaqayyo kennaa godhee ilmaan namaaf kennedha.",
     "verses": [
-      "Romans 6:14", 
+      "Rom 6:14", 
       
       
-      "2 Corinthians 12:9"]
+      "2 Qor 12:9"]
   },
 
   "faith": {
-    "word": "Faith",
-    "definition": "Trust and belief in God",
+    "word": "Faith[n]",
+    "definition": "Amantii,irratti of amanuu",
     "hebrew": "אֱמוּנָה (Emunah) – faithfulness",
     "greek": "πίστις (Pistis) – belief, trust",
-    "description": "Faith is confidence in what we hope for and assurance about what we do not see.",
-    "verses": ["Hebrews 11:1", "Romans 10:17"]
+    "description": "Amantii waan ijaan hin argamne,Harkaan hin qabatamne,ni taha jedhanii guutummaatti abdatanii irratti of gadi dhiisuu",
+    "verses": ["Ibr 11:1", "Rom 10:17"]
   },
 
   "hope": {
-    "word": "Hope",
-    "definition": "Confident expectation of God’s promises",
+    "word": "Hope[n]",
+    "definition": "Abdii,Waan tokko  amantii dhaan eeguu",
     "hebrew": "תִּקְוָה (Tikvah) – expectation",
     "greek": "ἐλπίς (Elpis) – hope, trust",
-    "description": "Hope anchors our soul in God’s faithful promises.",
+    "description": "Amantiidhaan fi ija jabummaan Waadaa Waaqayyoo Eeguu.",
     "verses": ["Romans 15:13"]
   },
 
   "mercy": {
-    "word": "Mercy",
-    "definition": "Compassion shown by God",
+    "word": "Mercy[n]",
+    "definition": "Araara,Faar-toltummaa",
     "hebrew": "רַחֲמִים (Rachamim) – compassion",
     "greek": "ἔλεος (Eleos) – mercy",
-    "description": "Mercy is God withholding punishment we deserve.",
-    "verses": ["Psalm 103:8"]
+    "description": " Arraarri,adabbii namaaf malu jalaa faara tolaadhaan ilaalamuu jechuudha,kana jechuun Gatii cubbuu,namaaf male jalaa Karaa Kiristoosiin ,ho'a fi jaalala Waaqayyoo Abbaa argachuuu.",
+    "verses": ["Far 103:8"]
   },
 
   "forgiveness": {
-    "word": "Forgiveness",
+    "word": "Forgiveness[v]",
     "definition": "God pardoning our sins",
     "hebrew": "סָלַח (Salach) – to pardon",
     "greek": "ἄφεσις (Aphesis) – release",
@@ -66,7 +66,7 @@
   },
 
   "prayer": {
-    "word": "Prayer",
+    "word": "Prayer[v]",
     "definition": "Communication with God",
     "hebrew": "תְּפִלָּה (Tefillah) – prayer",
     "greek": "προσευχή (Proseuche) – prayer",
@@ -75,7 +75,7 @@
   },
 
   "wisdom": {
-    "word": "Wisdom",
+    "word": "Wisdom[n]",
     "definition": "Ability to make right choices",
     "hebrew": "חָכְמָה (Chokmah) – wisdom",
     "greek": "σοφία (Sophia) – wisdom",
