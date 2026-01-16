@@ -1,16 +1,7 @@
 # bibledictionary
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+A EL-ROI LEXICON DICTIONARY.
+El-Roi Lexicon Dictionary...a comprehensive and authoritative resource for understanding the nuances of language, culture, and history. 
+It delves into the etymology, usage, and significance of words, phrases, and concepts, offering insights into the rich tapestry of human expression. 
+With meticulous research and clear definitions, the El-Roi Lexicon serves as an invaluable tool for scholars,
+students, and anyone seeking a deeper appreciation of the power and beauty of language.
