@@ -25,7 +25,7 @@
     "verses": [
       "Rom 6:14", 
       
-      
+       
       "2 Qor 12:9"]
   },
 
@@ -58,19 +58,19 @@
 
   "forgiveness": {
     "word": "Forgiveness[v]",
-    "definition": "God pardoning our sins",
+    "definition": "Dhiifama,araarama",
     "hebrew": "סָלַח (Salach) – to pardon",
     "greek": "ἄφεσις (Aphesis) – release",
-    "description": "Through Christ, God forgives and cleanses us.",
+    "description": "Dhiifama,araarama,jechuun Wanta Seerri nama irraa barbaadu tokko ykn Waan fuula Waaqayyoo dhaabbachuu nama dhowwuu tokko irraa bilisa bahanii araara argachuu.",
     "verses": ["1 John 1:9"]
   },
 
   "prayer": {
     "word": "Prayer[v]",
-    "definition": "Communication with God",
+    "definition": "Kadhannaa,Waaqayyo waliin haasawuu fi isa dhaggeeffachuu",
     "hebrew": "תְּפִלָּה (Tefillah) – prayer",
     "greek": "προσευχή (Proseuche) – prayer",
-    "description": "Prayer is speaking and listening to God.",
+    "description": "Kadhannaa,Waaqayyo waliin haasawuu fi isa dhaggeeffachuu. karaa kadhannaa Waaqayyo waliin wal qunnamuu dandeenya.Kadhannaa jechuun Waaqayyoof galata galchuu,isa dinqisiifachuu,isa kadhachuu fi isa dhiifama gaafachuu jechuudha.",
     "verses": ["1 Thessalonians 5:17"]
   },
 
@@ -85,71 +85,174 @@
 
   "righteousness": {
     "word": "Righteousness",
-    "definition": "Living according to God’s will",
-    "hebrew": "צְדָקָה (Tzedakah) – justice",
+    "definition": "Qajeelummaa",
+    "hebrew": "צְדָקָה (Tzedakah) – justice, righteousness,",
     "greek": "δικαιοσύνη (Dikaiosune) – righteousness",
-    "description": "Righteousness is right standing with God.",
+    "description": " Qajeelummaa jechuun,mudaa tokko malee fuula Waaqayyoo dura dhaabachuu jechuudha..",
     "verses": ["Romans 3:22"]
   },
 
   "holiness": {
     "word": "Holiness",
-    "definition": "Being set apart for God",
+    "definition": "Qulqullummaa,Qulqullaa'uu,adda bahuu(Waaqayyoof)",
     "hebrew": "קָדוֹשׁ (Kadosh) – holy",
     "greek": "ἅγιος (Hagios) – holy",
-    "description": "God calls His people to be holy.",
+    "description": "Qulqulluummaa jechuun Waaqayyoof adda bahuu,Dhuunfaa Waaqayyoo tahuuudha.",
     "verses": ["1 Peter 1:15-16"]
   },
 
   "obedience": {
     "word": "Obedience",
-    "definition": "Following God’s commands",
+    "definition": "Abboomamuu,Waaqayyoof dhagahuu fi ajaja isaa raawwachuu",
     "hebrew": "שָׁמַע (Shama) – hear, obey",
     "greek": "ὑπακοή (Hypakoe) – obedience",
-    "description": "Obedience shows our love for God.",
+    "description": "Waaqayyoof Abboomamuun jaalala isaaf qabnu agarsiisa.",
     "verses": ["John 14:15"]
   },
 
   "repentance": {
     "word": "Repentance",
-    "definition": "Turning away from sin",
+    "definition": "Yaada garaa geeddarannaa",
     "hebrew": "תְּשׁוּבָה (Teshuvah) – return",
     "greek": "μετάνοια (Metanoia) – change of mind",
-    "description": "True repentance brings spiritual change.",
+    "description": "Gara duraa irraatti deebi'uu fi cubbuu irraa fagaachuu.,Kallattiin jireenya keenya keessatti jijjiirama fidu.",
     "verses": ["Acts 3:19"]
   },
 
   "love": {
     "word": "Love",
-    "definition": "Unselfish care for others",
+    "definition": "Jaalala,ofittummaamaleessa",
     "greek": "ἀγάπη (Agape) – divine love",
-    "description": "God is love.",
+    "description": "Jaalala Waaqayyoo nujaalate kan ibsuufii Eenyummaa Waaqayyoo kan ibsu,isa Waaqayyoo dhala namaatti agarsiisedha.",
     "verses": ["1 John 4:8"]
   },
 
   "peace": {
     "word": "Peace",
-    "definition": "Inner calm from God",
+    "definition": "Nagaa,walitti dhufeenya gaarii,tokkummaa,dhaqnummaa",
     "hebrew": "שָׁלוֹם (Shalom) – wholeness",
     "greek": "εἰρήνη (Eirene) – peace",
-    "description": "God gives peace beyond understanding.",
+    "description": "Nagaan Waaqayyoo garaa keenya fi jireenya keenya keessatti argamuudha.kana jechuun tokkummaa gaarii Waaqayyoof nama Gidduutti karaa Kiristoos Ijaaramedha.",
     "verses": ["Philippians 4:7"]
   },
 
   "glory": {
     "word": "Glory",
-    "definition": "Honor and praise given to God",
+    "definition": "ulfina,Kabaja,",
     "hebrew": "כָּבוֹד (Kavod) – honor",
     "greek": "δόξα (Doxa) – glory",
-    "description": "Glory belongs to God alone.",
+    "description": "Ulfina jechuun, Waaqayyoof kan kennamu kabaja fi dinqisiifatamuu isaati.",
     "verses": ["Isaiah 42:8"]
   },
 
   "sanctification": {
     "word": "Sanctification",
-    "definition": "Process of becoming holy",
+    "definition": "Qulqullaa'uu,adeemsa Qulqulluu tahuuti.",
     "greek": "ἁγιασμός (Hagiasmos) – holiness",
-    "description": "Sanctification is the ongoing work of the Holy Spirit.",
+    "description": " Qulqullaa'uu jechuun Waan battalatti raawwatamu miti,adeemsa jireenya guutuu Waaqayyoof adda bahuu fi isaaf jiraachuuti.fi gara Mataa isa tahe Kiristoositti fakkaachuuuti.Kunis Hojii Hafuurrii qulqulluun jireenya Amantootaa keessatti raawwatudha.",
     "verses": ["1 Thessalonians 4:3"]
+  },
+  "Aaron": {
+    "word": "Aaron",
+    "definition": "Aaron, Hangafa Lubaati",
+    "hebrew": "אהרן (Aharon) – Aaron",
+    "greek": "Ααρών (Aarōn) – Aaron",
+    "description": ".Aaron, Ilma Amiraam fi Yookebed Hangafa Museeti.Dhaloonni isaa Lewwii keessaa kan taheedha.[Bahuu 4:14],Afaan Musee tahee dubbateera.[Bahuu 4:16]",
+    "verses": ["Exodus 28:1"]
+  },
+
+
+  "Aaronites": {
+    "word": "Aaronites",
+    "definition": "Arronummaa,sanyii Aaron,Ilmaan Aroon",
+    "hebrew": "בְּנֵי אַהֲרֹן (Benei Aharon) – sons of Aaron",
+    "greek": "υἱοὶ Ἀαρών (Huiōi Aarōn) – sons of Aaron",
+    "description": "Lubummaa fi Ilmaan Aaron,Waaqayyoof tajaajiluu fi sagada raawwachuuf filatamoodha.Ilmaan Isra'elii fuula Waaqayyootti akka Qullaa'aniif Waaqayoo hojii lubummaa Warra adda baasee itti kennedha.",
+    "verses": ["Exodus 28:1"]
+  },
+
+
+  "Abaddon": {
+  "word": "Abaddon",
+  "definition": "Badiisa, iddoo balleessaa fi iddoo du'aa jechuu dha.",
+  "hebrew": "אֲבַדּוֹן (Abaddon) – destruction, place of ruin",
+  "greek": "Ἀπολλύων (Apollyon) – the destroyer",
+  "description": "Abaddon jecha Afaan Ibrootaa irraa kan dhufe yoo ta'u, hiikni isaa badiisa, balleessaa, ykn iddoo barbadeeffamaati. Macaafa Qulqulluu keessatti Abaddon yeroo baayyee iddoo du'aa fi badiisaa bakka bu'a. Mul'ata 9:11 keessatti Abaddon maqaa mootii(Hangafa ergamootaa badiisaa (ergamaa boolla gad fagooti) akka ta'etti ibsameera. Afaan Giriikiitiin immoo 'Apollyon' jedhama, hiikni isaa 'the destroyer' \"Balleessoo\" dha.",
+  "verses": [
+    "Mul 9:11",
+    "Iyoob 26:6",
+    "Fak 15:11"
+  ]
+},
+
+"Adam": {
+  "word": "Adam",
+  "definition": "Addaam,nama",
+  "hebrew": "אָדָם",
+  "description": "Maqaan ‘Addaam’ kan nama jalqabaa taʼe, akkasumas jecha afaan Ibirootaan yeroo baayʼee 'nama' jechuu dha, nama dhuunfaa fi sanyii namaa guutuu kan ibsu. Buʼuura jecha kanaa duraan dursee ' diimaa' jechuu dha, akkasumas Biyyoo diimaa waliin wal fakkaata. Wanti Waaqayyo jedhe: ‘Waaqayyo Addaam uume (adam) biyyoo lafa irraa (adamah)’ (Fakk. 2:7). Adam  uumama Waaqayyoo keessaa isa ol aanaa dha.Akka fakkaatti Waaqayyootti kan Uumamedha. Waaqayyo haadha manaa isaatii kennee ture(Hewaan (Fakk. 2:21-23).",
+  "verses": ["Genesis 1:27", "Genesis 2:7", "Genesis 2:21-23", "1 Corinthians 15:45-49"]
+},
+
+
+
+  "Amen": {
+    "word": "Amen",
+    "definition": "Dhugaa, amansiisaa fi mirkaneessa.",
+    "greek": "ἀμήν (amen) – truly, so be it",
+    "description": "Dhugeessuuf itti fayyadamama, Waliigaltee.",
+    "verses": ["Matthew 6:13", "John 3:33"]
+  },
+  "Parable": {
+    "word": "Parable",
+    "definition": "Fakkeenya yookin fakkii ittiin barsiisu.",
+    "greek": "παραβολή (parabolē) – comparison, illustration",
+    "description": "Yesuus Fakkeenyota garaagaraatiin barsiisaa tureera..",
+    "verses": ["Matthew 13:34", "Luke 8:5"]
+  },
+  "Disciple": {
+    "word": "Disciple",
+    "definition": "Barataa fi hordofaa Yesuus.",
+    "greek": "μαθητής (mathētēs) – learner, follower",
+    "description": "Kiristoos duuka kan bu'uufii irraa kan baratu.",
+    "verses": ["Matthew 10:1", "John 13:35"]
+  },
+  "Beatitude": {
+    "word": "Beatitude",
+    "definition": "Gammachuu fi eebbifamummaa kiristaanaa kan ibsu.",
+    "greek": "μακαρισμός (makarismos) – blessedness",
+    "description": "Sagalee eebbaa kan of keessaa qabu,.",
+    "verses": ["Matthew 5:3-12", "Luke 6:20-23"]
+  },
+ 
+  "Kingdom": {
+    "word": "Kingdom",
+    "definition": "Mootummaa Waaqayyoo, jireenya isa keessatti bulu.",
+    "greek": "βασιλεία (basileia) – reign, dominion",
+    "description": "The spiritual reign of God over the hearts of men.",
+    "verses": ["Matthew 6:33", "Mark 1:15"]
+  },
+  "Mediator": {
+    "word": "Mediator",
+    "definition": "Gara Waaqayyootti fi namoota gidduutti,giddu seentummaaf kan dhaabatu[Macaafa qulqulluu keessatti Yesuus Kiristoos].",
+    "greek": "μεσίτης (mesitēs) – intermediary",
+    "description": "Isa Waaqayyoo Abbaa fi dhala namaa Walitti araarsee nagaa buusedha.",
+    "verses": ["1 Timothy 2:5", "Hebrews 9:15"]
+  },
+ 
+  "Paraclete": {
+    "word": "Paraclete",
+    "definition": "Gargaaraa, Abuukaattoo,Deeggaraa,jajjabeessaa",
+    "greek": "παράκλητος (paraklētos) – advocate, helper",
+    "description": "Jechi ku jecha Hafuura Qulqulluuf Macaafa Keenya Keessaatti ibsamedha.",
+    "verses": ["John 14:16", "John 14:26"]
+  },
+  "Apostle": {
+    "word": "Apostle",
+    "definition": "Ergamoota,isa Ergame.",
+    "greek": "ἀπόστολος (apostolos) – sent one",
+    "description": " Isaan Kiristoosiin Muudaman Wangeela Haa lallabaniif guutummaatti biyya lafaatti ergamniifii isarraa taahanii baratanidha",
+    "verses": ["Matthew 10:2", "Acts 1:2"]
   }
 }
+
+

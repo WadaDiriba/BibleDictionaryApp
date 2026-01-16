@@ -68,6 +68,7 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
                 
                 // Prefix Icon (Magnifying Glass)
                 prefixIcon: Container(
+                  
                   margin: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
                     gradient: ThemeColors.goldGradient,
